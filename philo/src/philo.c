@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:44:57 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/09/19 04:27:42 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/09/20 03:16:47 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,13 @@ int	main(int argc, char **argv)
 		data.number_of_eat = ft_atoi(argv[5]);
 	else
 		data.number_of_eat = -1;
+	data.start_time = get_time();
 	printf("number_of_philo: %d \n", data.number_of_philo);
 	printf("time_to_die: %d \n", data.time_to_die);
 	printf("time_to_eat: %d \n", data.time_to_eat);
 	printf("time_to_sleep: %d \n", data.time_to_sleep);
 	printf("number_of_eat: %d \n", data.number_of_eat);
+	printf("start_time: %lld \n", data.start_time);
 	create_table(&data);
 	return (0);
 }

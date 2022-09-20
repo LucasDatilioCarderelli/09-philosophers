@@ -13,7 +13,8 @@ HEADER		=	$(SRC_DIR)/philo.h
 INCLUDE		=	-I ./
 
 SRC_FILES	=	philo.c \
-				utils.c
+				utils.c	\
+				get_time.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ			=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

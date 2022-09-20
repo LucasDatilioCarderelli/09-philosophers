@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:46:53 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/09/19 04:33:27 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/09/20 03:13:49 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_philo
 {
@@ -37,7 +38,8 @@ typedef struct s_data
 	t_philo		*philo;
 }	t_data;
 
-int	ft_atoi(const char *str);
-int	ft_isdigit(int c);
+int			ft_atoi(const char *str);
+int			ft_isdigit(int c);
+long long	get_time(void);
 
 #endif
