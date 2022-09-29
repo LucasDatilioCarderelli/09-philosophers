@@ -1,20 +1,19 @@
 .PHONY: all clean fclean re
 
 NAME		=	philo
-HEADER		=	philo.h
 
 CC			=	gcc
-CFLAGS		=	-g -Wall -Wextra -Werror
+CFLAGS		=	-g -Wall -Wextra -Werror -pthread
 
 SRC_DIR		=	src
 OBJ_DIR		=	obj
-HEADER		=	$(SRC_DIR)/philo.h
 
 INCLUDE		=	-I ./
 
 SRC_FILES	=	philo.c \
 				utils.c	\
-				get_time.c
+				get_time.c \
+				create_llist.c
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ			=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -27,7 +26,6 @@ all:			$(NAME)
 
 $(NAME):		$(OBJ)
 				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
 
 clean:
 		rm -rf $(OBJ_DIR)
