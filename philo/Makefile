@@ -13,7 +13,9 @@ INCLUDE		=	-I ./
 SRC_FILES	=	philo.c \
 				utils.c	\
 				get_time.c \
-				create_llist.c
+				create_llist.c \
+				thread_init.c \
+				philo_routines.c \
 
 SRC			=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ			=	$(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:10:31 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/09/29 23:59:35 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/09 04:35:54 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ void	print_list(t_philo **philo)
 {
 	t_philo	*temp;
 
-	temp = *philo;
-	while (temp->next != *philo)
+	temp = (*philo);
+	while (1)
 	{
-		printf("print id: %d\n", temp->id);
+		printf("print list id: %d\n", temp->id);
 		temp = temp->next;
+		if (temp == *philo)
+			break ; 
 	}
-	printf("print id: %d\n", temp->id);
 }
 
 static void	insert_back(t_philo **philo, t_philo **new_philo)
@@ -70,8 +71,8 @@ void	create_llist(t_data *data)
 		new_philo = NULL;
 		new_philo = (t_philo *)malloc(sizeof(t_philo));
 		new_philo->id = i;
+		new_philo->data = data;
+		new_philo->count_of_eat = 0;
 		insert_back(&data->philo, &new_philo);
 	}
-	print_list(&data->philo);
-	free_llist(&data->philo);
 }

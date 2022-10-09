@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:44:57 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/09/28 01:16:06 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/09 04:33:12 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	(void) argv[0];
+	data.dead = 0;
 	data.number_of_philo = ft_atoi(argv[1]);
 	data.time_to_die = ft_atoi(argv[2]);
 	data.time_to_eat = ft_atoi(argv[3]);
@@ -49,12 +50,9 @@ int	main(int argc, char **argv)
 	else
 		data.number_of_eat = -1;
 	data.start_time = get_time();
-	printf("number_of_philo: %d \n", data.number_of_philo);
-	printf("time_to_die: %d \n", data.time_to_die);
-	printf("time_to_eat: %d \n", data.time_to_eat);
-	printf("time_to_sleep: %d \n", data.time_to_sleep);
-	printf("number_of_eat: %d \n", data.number_of_eat);
-	printf("start_time: %lld \n", data.start_time);
 	create_llist(&data);
+	thread_init(&data);
+	printf("thread finalizada\n");
+	free_llist(&data.philo);
 	return (0);
 }
