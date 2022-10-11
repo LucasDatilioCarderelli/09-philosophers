@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:46:53 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/09 23:53:44 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/10 07:46:49 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ typedef struct s_data
 	int				number_of_eat;
 	int				dead;
 	long long		start_time;
-	// pthread_mutex_t	printer;
-	pthread_mutex_t	death_mutex;
+	pthread_mutex_t	mutex;
 	t_philo		*philo;
 }	t_data;
 
@@ -61,6 +60,6 @@ void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
 void		thread_init(t_data *data);
 
-int			is_not_dead(t_data *data);
+// int			is_not_dead(t_data *data);
 
 #endif

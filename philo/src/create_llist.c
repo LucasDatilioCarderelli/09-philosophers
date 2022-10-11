@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 01:10:31 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/09 04:35:54 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/10 07:12:27 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	free_llist(t_philo **philo)
 	while (temp->next != *philo)
 	{
 		temp = temp->next;
+		pthread_mutex_destroy(&temp->prev->fork);
 		free(temp->prev);
 	}
+	pthread_mutex_destroy(&temp->fork);
 	free(temp);
 }
 
@@ -35,7 +37,7 @@ void	print_list(t_philo **philo)
 		printf("print list id: %d\n", temp->id);
 		temp = temp->next;
 		if (temp == *philo)
-			break ; 
+			break ;
 	}
 }
 
@@ -73,6 +75,7 @@ void	create_llist(t_data *data)
 		new_philo->id = i;
 		new_philo->data = data;
 		new_philo->count_of_eat = 0;
+		pthread_mutex_init(&new_philo->fork, NULL);
 		insert_back(&data->philo, &new_philo);
 	}
 }
