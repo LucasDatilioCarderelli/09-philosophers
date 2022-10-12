@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:46:53 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/10 07:46:49 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/13 01:45:37 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct s_data t_data;
-typedef struct s_philo t_philo;
+typedef struct s_data	t_data;
+typedef struct s_philo	t_philo;
 
 typedef struct s_philo
 {
-	int				id;
-	int				count_of_eat;
-	long long		last_time_eat;
-	pthread_t		thread;
-	pthread_mutex_t	fork;
-	t_data			*data;
-	struct s_philo	*next;
-	struct s_philo	*prev;
+	int					id;
+	_Atomic int			count_of_eat;
+	_Atomic long long	last_time_eat;
+	pthread_t			thread;
+	pthread_mutex_t		fork;
+	t_data				*data;
+	struct s_philo		*next;
+	struct s_philo		*prev;
 }	t_philo;
 
 typedef struct s_data
@@ -41,10 +41,10 @@ typedef struct s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				number_of_eat;
-	int				dead;
 	long long		start_time;
+	_Atomic int		dead;
 	pthread_mutex_t	mutex;
-	t_philo		*philo;
+	t_philo			*philo;
 }	t_data;
 
 void		create_llist(t_data *data);
@@ -59,7 +59,5 @@ void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
 void		thread_init(t_data *data);
-
-// int			is_not_dead(t_data *data);
 
 #endif

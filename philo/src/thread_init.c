@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 00:42:19 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/10 07:46:54 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/12 23:33:13 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	death_check(t_data *data)
 	philo = data->philo;
 	while (data->dead == 0 && (philo->count_of_eat != data->number_of_eat))
 	{
-		pthread_mutex_lock(&philo->data->mutex);
 		if (get_time() - philo->last_time_eat > data->time_to_die)
 		{
+			pthread_mutex_lock(&data->mutex);
 			data->dead = 1;
-			printf ("%lli %i died\n", get_time() - data->start_time, philo->id);
+			printf("%lli %i died\n", get_time() - data->start_time, philo->id);
+			pthread_mutex_unlock(&data->mutex);
 		}
 		philo = philo->next;
-		pthread_mutex_unlock(&philo->data->mutex);
 	}
-}
+}	
 
 static void	*philo_func(t_philo *philo)
 {

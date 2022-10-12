@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:44:57 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/09 04:33:12 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/12 05:03:21 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	main(int argc, char **argv)
 	data.start_time = get_time();
 	create_llist(&data);
 	thread_init(&data);
-	printf("thread finalizada\n");
 	free_llist(&data.philo);
 	return (0);
 }
