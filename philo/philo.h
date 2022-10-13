@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:46:53 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/13 01:45:37 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/13 03:28:23 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_data
 	int				number_of_eat;
 	long long		start_time;
 	_Atomic int		dead;
-	pthread_mutex_t	mutex;
 	t_philo			*philo;
 }	t_data;
 
