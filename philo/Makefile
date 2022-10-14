@@ -13,6 +13,7 @@ INCLUDE		=	-I ./
 SRC_FILES	=	philo.c \
 				utils.c	\
 				get_time.c \
+				checker.c \
 				create_llist.c \
 				thread_init.c \
 				philo_routines.c
