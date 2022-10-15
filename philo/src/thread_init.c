@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 00:42:19 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/14 05:05:07 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/16 00:13:15 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	*philo_func(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->eat_time_mutex);	
+	pthread_mutex_lock(&philo->data->eat_time_mutex);
 	philo->last_time_eat = get_time();
 	pthread_mutex_unlock(&philo->data->eat_time_mutex);
 	if (philo->id % 2 == 0)

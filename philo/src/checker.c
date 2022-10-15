@@ -6,7 +6,7 @@
 /*   By: ldatilio <ldatilio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 04:11:23 by ldatilio          #+#    #+#             */
-/*   Updated: 2022/10/14 04:53:30 by ldatilio         ###   ########.fr       */
+/*   Updated: 2022/10/16 00:13:23 by ldatilio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,4 @@ void	death_checker(t_data *data)
 		}
 		philo = philo->next;
 	}
-}	
+}
